@@ -3,10 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cruds</title>
+    <title>CRUDS System</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- HTML remains the same as before -->
+    <div class="container">
+      <div class="header">
+        <h1>CRUDS</h1>
+        <p>CREATE READ UPDATE DELETE SEARCH</p>
+      </div>
+
+      <div class="crud-form">
+        <div class="input-group">
+          <input type="text" id="title" placeholder="title" />
+          <input type="number" id="price" placeholder="price" />
+          <input type="number" id="taxes" placeholder="taxes" />
+          <input type="number" id="ads" placeholder="ads" />
+          <input type="number" id="discount" placeholder="discount" />
+          <div class="total">Total: 2132</div>
+        </div>
+        <input type="number" id="count" placeholder="count" />
+        <input type="text" id="category" placeholder="category" />
+        <button class="btn btn-create">Create</button>
+      </div>
+
+      <div class="search-group">
+        <input type="text" id="search" placeholder="Search by title" />
+        <input
+          type="text"
+          id="searchCategory"
+          placeholder="Search by category" />
+      </div>
+
+      <button class="btn btn-delete-all">Delete All (15)</button>
+
+      <table class="crud-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>PRICE</th>
+            <th>TAXES</th>
+            <th>ADS</th>
+            <th>DISCOUNT</th>
+            <th>TOTAL</th>
+            <th>CATEGORY</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>samsung s20</td>
+            <td>2000</td>
+            <td>52</td>
+            <td>125</td>
+            <td>45</td>
+            <td>2132</td>
+            <td>phone</td>
+            <td>
+              <button class="btn btn-update">Update</button>
+              <button class="btn btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
