@@ -90,16 +90,19 @@ function clearInputs() {
   total.classList.remove("success", "fail");
   category.value = "";
 }
+// function to save to local storage
 function saveToLocalStorage() {
   localStorage.setItem("products", JSON.stringify(allProducts));
   renderProducts(allProducts);
 }
+// function to load from local storage
 function loadFromLocalStorage() {
   let data = JSON.parse(localStorage.getItem("products"));
   if (data) {
     allProducts = data;
   }
 }
+// function to render products
 function renderProducts(products) {
   if (products.length === 0) {
     deleteAll.style.display = "none";
@@ -118,7 +121,7 @@ function renderProducts(products) {
               <td>${product.category}</td>
               <td>
                 <button class="btn btn-update">Update</button>
-                <button class="btn btn-delete">Delete</button>
+                <button class="btn btn-delete" onclick="delet(${index})">Delete</button>
               </td>
             </tr>`;
     });
@@ -127,6 +130,7 @@ function renderProducts(products) {
     deleteAll.innerHTML = `Delete All (${allProducts.length})`;
   }
 }
+// function to delete all products
 deleteAll.addEventListener("click", () => {
   localStorage.clear();
   allProducts = [];
@@ -139,4 +143,10 @@ function searchProducts(searchValue, searchField) {
     product[searchField].toLowerCase().includes(searchValue)
   );
   renderProducts(filteredProducts);
+}
+// function to delete product
+function delet(index) {
+  allProducts.splice(index, 1);
+  saveToLocalStorage();
+  renderProducts(allProducts);
 }
