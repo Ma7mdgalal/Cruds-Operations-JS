@@ -118,6 +118,14 @@ input:focus {
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
+.success {
+  border: 2px solid green;
+  color: green;
+}
+.fail {
+  border: 2px solid red;
+  color: red;
+}
 
 .btn-delete-all {
   background-color: var(--danger-color);
