@@ -17,11 +17,27 @@
       <div class="crud-form">
         <div class="input-group">
           <input type="text" id="title" placeholder="title" />
-          <input type="number" id="price" placeholder="price" />
-          <input type="number" id="taxes" placeholder="taxes" />
-          <input type="number" id="ads" placeholder="ads" />
-          <input type="number" id="discount" placeholder="discount" />
-          <div class="total">Total: 2132</div>
+          <input
+            type="number"
+            id="price"
+            placeholder="price"
+            oninput="getPrice()" />
+          <input
+            oninput="getPrice()"
+            type="number"
+            id="taxes"
+            placeholder="taxes" />
+          <input
+            oninput="getPrice()"
+            type="number"
+            id="ads"
+            placeholder="ads" />
+          <input
+            oninput="getPrice()"
+            type="number"
+            id="discount"
+            placeholder="discount" />
+          <div class="total">Total:</div>
         </div>
         <input type="number" id="count" placeholder="count" />
         <input type="text" id="category" placeholder="category" />
