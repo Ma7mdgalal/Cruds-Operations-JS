@@ -19,7 +19,7 @@ const productsHtml = document.getElementsByTagName("tbody")[0];
 // function cmpuate total price
 let allProducts = [];
 loadFromLocalStorage();
-renderProducts();
+renderProducts(allProducts);
 
 function getPrice() {
   // Parse input values and handle potential NaN cases
@@ -75,7 +75,7 @@ function createProduct() {
     });
   }
   saveToLocalStorage();
-  renderProducts();
+  renderProducts(allProducts);
   clearInputs();
 }
 // function to clear inputs
@@ -92,6 +92,7 @@ function clearInputs() {
 }
 function saveToLocalStorage() {
   localStorage.setItem("products", JSON.stringify(allProducts));
+  renderProducts(allProducts);
 }
 function loadFromLocalStorage() {
   let data = JSON.parse(localStorage.getItem("products"));
@@ -99,14 +100,13 @@ function loadFromLocalStorage() {
     allProducts = data;
   }
 }
-function renderProducts() {
-  if (allProducts.length === 0) {
+function renderProducts(products) {
+  if (products.length === 0) {
     deleteAll.style.display = "none";
     productsHtml.innerHTML = `<tr style="text-align: center;"><td colspan="9">No products found.</td></tr>`;
   } else {
-    loadFromLocalStorage();
     productsHtml.innerHTML = "";
-    allProducts.forEach((product, index) => {
+    products.forEach((product, index) => {
       productsHtml.innerHTML += ` <tr>
               <td>${index}</td>
               <td>${product.title}</td>
@@ -130,5 +130,13 @@ function renderProducts() {
 deleteAll.addEventListener("click", () => {
   localStorage.clear();
   allProducts = [];
-  renderProducts();
+  renderProducts(allProducts);
 });
+// function to search
+function searchProducts(searchValue, searchField) {
+  searchValue = searchValue.toLowerCase();
+  const filteredProducts = allProducts.filter((product) =>
+    product[searchField].toLowerCase().includes(searchValue)
+  );
+  renderProducts(filteredProducts);
+}

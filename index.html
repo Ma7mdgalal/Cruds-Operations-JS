@@ -45,11 +45,16 @@
       </div>
 
       <div class="search-group">
-        <input type="text" id="search" placeholder="Search by title" />
+        <input
+          type="text"
+          id="search"
+          placeholder="Search by title"
+          oninput="searchProducts(search.value, 'title')" />
         <input
           type="text"
           id="searchCategory"
-          placeholder="Search by category" />
+          placeholder="Search by category"
+          oninput="searchProducts(searchCategory.value, 'category')" />
       </div>
 
       <button class="btn btn-delete-all">Delete All (15)</button>
