@@ -48,6 +48,9 @@ body {
   margin-bottom: 10px;
   text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
 }
+.text-center {
+  text-align: center;
+}
 
 .header p {
   color: var(--text-secondary);
